@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 
-// ladataan .env muuttujat
+// .env 
 require('dotenv').config();
 
 const app = express();
@@ -14,7 +14,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static('public'));
 
 /////////////////////////////// CONNECT TO MONGODB ///////////////////////////////
