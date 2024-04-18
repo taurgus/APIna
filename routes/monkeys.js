@@ -2,14 +2,16 @@ const express = require('express');
 const router = express.Router();
 const Monkey = require('../models/monkey');
 
-// Route to add a new monkey
 router.post('/', async (req, res) => {
-    const { race, size, livingArea } = req.body;
+    console.log("Received body:", req.body); 
+
+    const { race} = req.body;
     try {
         const newMonkey = new Monkey({ race, size, livingArea });
         await newMonkey.save();
         res.status(201).json(newMonkey);
     } catch (error) {
+        console.error("Failed to save monkey:", error);
         res.status(400).json({ message: error.message });
     }
 });

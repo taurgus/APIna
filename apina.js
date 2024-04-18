@@ -15,18 +15,19 @@ const MONGODB_URI = process.env.MONGODB_URI;
 app.use(express.json());
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
 /////////////////////////////// CONNECT TO MONGODB ///////////////////////////////
 async function connectDB() {
-  try {
-      await mongoose.connect(MONGODB_URI, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true
-      });
-      console.log('Connected to MongoDB');
-  } catch (error) {
-      console.error('Error connecting to MongoDB:', error);
-  }
+    try {
+        await mongoose.connect(MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        console.log('Connected to MongoDB');
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
+    }
 }
 
 connectDB();
