@@ -10,12 +10,11 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3007;
 const MONGODB_URI = process.env.MONGODB_URI;
-const bodyParser = require('body-parser');
 
 
 // Middleware
 app.use(express.json());
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 /////////////////////////////// CONNECT TO MONGODB ///////////////////////////////
