@@ -39,7 +39,9 @@ app.listen(PORT, () => {
 // Require Monkey routes
 const monkeyRouter = require('./routes/monkeys');
 const findMonkeyRouter = require('./routes/findmonkeys');
+const idMonkeyRouter = require('./routes/idmonkey');
 
 // Use Monkey routes
 app.use('/monkeys', monkeyRouter); // POST 
 app.use('/findmonkeys', findMonkeyRouter); //GET
+app.use('/idmonkey/id', idMonkeyRouter);

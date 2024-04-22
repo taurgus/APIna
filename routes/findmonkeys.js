@@ -23,6 +23,5 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: "Failed to retrieve monkeys", error: error });
     }
   });
-  
-  
+
   module.exports = router;
