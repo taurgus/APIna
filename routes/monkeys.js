@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Monkey = require('../models/monkey'); 
 
-
+// Postaa apina
 router.post('/', async (req, res) => {
   const { race, size, livingArea } = req.body;
 
