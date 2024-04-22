@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Monkey = require('../models/monkey'); // Adjust path as necessary
+const Monkey = require('../models/monkey'); 
 
 // GET route to fetch a single monkey by its MongoDB _id
 router.get('/:id', async (req, res) => {
@@ -13,16 +13,15 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: 'Monkey not found' });
         }
     } catch (error) {
-        console.error("Error fetching the monkey:", error);
+        console.error("Apinaa ei löydy:", error);
         // Handle the case where the ID format is not valid
         if (error.kind === 'ObjectId' && error.name === 'CastError') {
-            res.status(400).json({ message: "Invalid ID format" });
+            res.status(400).json({ message: "Huono ID" });
         } else {
-            res.status(500).json({ message: "Error retrieving the monkey", error: error });
+            res.status(500).json({ message: "Virhe apinan saamisessa", error: error });
         }
     }
 });
 
 module.exports = router;
 
-// EI TOIMI

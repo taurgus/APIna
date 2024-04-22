@@ -11,9 +11,23 @@ const PORT = process.env.PORT || 3007;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Middleware
-app.use(express.json()); // Add this line to parse the request body as JSON
+app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+// Require Monkey routes
+const monkeyRouter = require('./routes/monkeys');
+const findMonkeyRouter = require('./routes/findmonkeys');
+const idMonkeyRouter = require('./routes/idmonkey');
+const delMonkeyRouter = require('./routes/delmonkey');
+const updMonkeyRouter = require('./routes/updmonkey');
+
+// Use Monkey routes
+app.use('/monkeys', monkeyRouter); // POST 
+app.use('/findmonkeys', findMonkeyRouter); //GET
+app.use('/idmonkey/id', idMonkeyRouter);
+app.use('/delmonkey', delMonkeyRouter);
+app.use('/monkeys', updMonkeyRouter);
 
 // Function to connect to MongoDB
 async function connectToMongoDB(uri) {
@@ -35,13 +49,3 @@ connectToMongoDB(MONGODB_URI);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-// Require Monkey routes
-const monkeyRouter = require('./routes/monkeys');
-const findMonkeyRouter = require('./routes/findmonkeys');
-const idMonkeyRouter = require('./routes/idmonkey');
-
-// Use Monkey routes
-app.use('/monkeys', monkeyRouter); // POST 
-app.use('/findmonkeys', findMonkeyRouter); //GET
-app.use('/idmonkey/id', idMonkeyRouter);
