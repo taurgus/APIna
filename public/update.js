@@ -9,7 +9,9 @@ document
     const livingArea = document.getElementById("livingArea").value;
 
     const updateData = { race, size, livingArea };
-
+    
+    // USE PUT METHOD TO UPDATE MONKEY
+    // USE Content-Type: application/json for headers
     try {
       const response = await fetch(`/monkeys/${monkeyId}`, {
         method: "PUT",
@@ -20,7 +22,7 @@ document
       });
       const data = await response.json();
       if (response.ok) {
-        console.log("Monkey updated successfully:", data);
+        console.log("Apina updated successfully:", data);
         alert("Apina päivitetty");
         displayUpdatedMonkey(data.monkey); // Call function to display updated monkey
       } else {
