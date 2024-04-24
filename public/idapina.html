@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Monkey by ID</title>
+</head>
+<body>
+    <p><a href="index.html">Etusivu</a></p>
+    <h1>Löydä piilotettu APIna</h1>
+    <form id="findMonkeyForm">
+        <label for="monkeyId">Syötä Apinan ID:</label>
+        <input type="text" id="monkeyId" name="monkeyId">
+        <button type="submit">Löydä apina</button>
+    </form>
+    <div id="monkeyDetails"></div>
+
+    <script>
+
+        document.getElementById('findMonkeyForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const monkeyId = document.getElementById('monkeyId').value;
+    
+            try {
+                const response = await fetch(`/idmonkey/id/${monkeyId}`);
+                const data = await response.json();
+    
+                if (response.ok) {
+                    const monkeyDetails = `
+                        <h2>Monkey Details</h2>
+                        <p>ID: ${data._id}</p>
+                        <p>Race: ${data.race}</p>
+                        <p>Size: ${data.size}</p>
+                        <p>Living Area: ${data.livingArea}</p>
+                    `;
+                    document.getElementById('monkeyDetails').innerHTML = monkeyDetails;
+                } else {
+                    document.getElementById('monkeyDetails').innerHTML = `<p>${data.message}</p>`;
+                }
+            } catch (error) {
+                console.error('Error finding monkey:', error);
+                document.getElementById('monkeyDetails').innerHTML = `<p>Error finding monkey. Please try again later.</p>`;
+            }
+        });
+
+    </script>
+    
+</body>
+</html>

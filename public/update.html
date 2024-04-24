@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Monkey</title>
+</head>
+<body>
+    <p><a href="index.html">Etusivu</a></p>
+    <h1>Päivitä Apina</h1>
+    <form id="updateMonkeyForm">
+        <label for="monkeyId">Monkey ID:</label>
+        <input type="text" id="monkeyId" name="monkeyId"><br> <!-- Input field for monkey ID -->
+        <label for="race">Race:</label>
+        <input type="text" id="race" name="race"><br>
+        <label for="size">Size:</label>
+        <input type="text" id="size" name="size"><br>
+        <label for="livingArea">Living Area:</label>
+        <input type="text" id="livingArea" name="livingArea"><br>
+        <input type="submit" value="Update Monkey">
+    </form>
+
+    <div id="updatedMonkey">
+        <h2>Ehostettu apina </h2>
+        <p id="monkeyDetails"></p>
+    </div>
+    
+
+    <script src="update.js"></script>
+</body>
+</html>
