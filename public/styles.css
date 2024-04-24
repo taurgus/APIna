@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0;
+    padding: 20px;
+    font-family: 'Arial', sans-serif; 
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #4A90E2;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #4A90E2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center; 
+}
+
+a:hover {
+    background-color: #357ABD;
+}
+
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+input[type="text"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+#message {
+    color: #d9534f;
+    margin-top: 20px;
+}
+
+#monkeyList {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+
+#monkeyList div {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#monkeyList div:last-child {
+    border-bottom: none;
+}
+
+#monkeyList button {
+    margin-top: 10px;
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#monkeyList button:hover {
+    background-color: #ec971f;
+}
