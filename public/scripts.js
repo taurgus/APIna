@@ -2,13 +2,13 @@ function deleteMonkey(id) {
     fetch(`/delmonkey/${id}`, { method: 'DELETE' })
         .then(response => {
             if (response.ok) {
-                alert("Monkey deleted successfully!");
+                alert("Apina poistettu");
                 window.location.reload(); 
             } else {
-                alert("Failed to delete monkey.");
+                alert("Apina karkas.");
             }
         })
-        .catch(error => alert("Error deleting monkey."));
+        .catch(error => alert("Apinan poisto epäonnistui."));
 }
 
 window.onload = function() {
@@ -18,9 +18,13 @@ window.onload = function() {
             const listContainer = document.getElementById('monkeyList');
             listContainer.innerHTML = '';
             monkeys.forEach(monkey => {
-                const monkeyDiv = document.createElement('div');
-                monkeyDiv.innerHTML = `Monkey: ${monkey.race}, Size: ${monkey.size}, Living Area: ${monkey.livingArea} `;
-                
+                const monkeyDiv = document.createElement('div'); // Monkeydiv information
+                monkeyDiv.innerHTML = `
+                    <p>ID: ${monkey._id}</p>
+                    <p>Race: ${monkey.race}</p>
+                    <p>Size: ${monkey.size}</p>
+                    <p>Living Area: ${monkey.livingArea}</p>
+                `;
                 // Create a delete button for each monkey
                 const deleteButton = document.createElement('button');
                 deleteButton.innerText = 'Delete';

@@ -19,8 +19,8 @@ router.get('/', async (req, res) => {
         res.status(200).json(monkeys);
     } catch (error) {
         // Handling errors
-        console.error("Error fetching monkeys:", error);
-        res.status(500).json({ message: "Failed to retrieve monkeys", error: error });
+        console.error("Apinoiden noutaminen meni pieleen:", error);
+        res.status(500).json({ message: "Apinoiden noutaminen meni pieleen", error: error });
     }
   });
 
